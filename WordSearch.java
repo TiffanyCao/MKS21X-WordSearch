@@ -45,9 +45,30 @@ public class WordSearch{
      * or there are overlapping letters that do not match, then false is returned
      * and the board is NOT modified.
      */
-    //public boolean addWordHorizontal(String word,int row, int col){
-    //}
+    public boolean addWordHorizontal(String word, int row, int col){
+      if(row >= data.length || ((col + word.length() - 1) >= data[0].length)){
+        return false;
+      }
+      if(check(word, row, col)){
+        for(int x = 0; x < word.length(); x++){
+          data[row][x + col] = word.charAt(x);
+        } return true;
+      } return false;
+    }
 
+
+
+    public boolean check(String word, int row, int col){
+      boolean available = true;
+      for(int x = 0; x < word.length(); x++){
+        if((data[row][x + col] == '_') ||
+           (data[row][x + col] == word.charAt(x))){
+             available = true;
+        }else{
+          available = false;
+        }
+      } return available;
+    }
    /**Attempts to add a given word to the specified position of the WordGrid.
      *The word is added from top to bottom, must fit on the WordGrid, and must
      *have a corresponding letter to match any letters that it overlaps.
