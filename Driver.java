@@ -9,6 +9,11 @@ public class Driver{
     System.out.println("---Testing addWordHorizontal---");
     System.out.println("testing add YES horizontally to row 2, column 0: should return true");
     System.out.println(first.addWordHorizontal("YES", 2, 0));
+    System.out.println("word search should be modified:");
+    System.out.println(first.toString());
+    System.out.println("\ntesting add NO horizontally to row 1, column 3: should return true");
+    System.out.println(first.addWordHorizontal("NO", 1, 3));
+    System.out.println("word search should be modified:");
     System.out.println(first.toString());
 
     System.out.println("\ntesting add YES horizontally to row 0, column 3: should return false");
@@ -31,6 +36,11 @@ public class Driver{
     System.out.println("\ntesting add NO horizontally to row 3, column 3: should return false");
     System.out.println(first.addWordHorizontal("NO", 3, 3));
     System.out.println("word search should be the same as before:");
+    System.out.println(first.toString());
+
+    System.out.println("\ntesting add ESA horzontally to row 2, column 1: should return true");
+    System.out.println(first.addWordHorizontal("ESA", 2, 1));
+    System.out.println("word search should be modified:");
     System.out.println(first.toString());
   }
 }
