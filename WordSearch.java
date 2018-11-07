@@ -49,7 +49,7 @@ public class WordSearch{
       if(row >= data.length || ((col + word.length() - 1) >= data[0].length)){
         return false;
       }
-      if(check(word, row, col)){
+      if(checkHorizontal(word, row, col)){
         for(int x = 0; x < word.length(); x++){
           data[row][x + col] = word.charAt(x);
         } return true;
@@ -58,14 +58,14 @@ public class WordSearch{
 
 
 
-    public boolean check(String word, int row, int col){
+    public boolean checkHorizontal(String word, int row, int col){
       boolean available = true;
       for(int x = 0; x < word.length(); x++){
         if((data[row][x + col] == '_') ||
            (data[row][x + col] == word.charAt(x))){
              available = true;
         }else{
-          available = false;
+          return false;
         }
       } return available;
     }
@@ -80,6 +80,26 @@ public class WordSearch{
      *or there are overlapping letters that do not match, then false is returned.
      *and the board is NOT modified.
      */
-    //public boolean addWordVertical(String word,int row, int col){
-    //}
+    public boolean addWordVertical(String word, int row, int col){
+      if(col >= data[0].length || ((row + word.length() - 1) >= data.length)){
+        return false;
+      }
+      if(checkVertical(word, row, col)){
+        for(int x = 0; x < word.length(); x++){
+          data[x + row][col] = word.charAt(x);
+        } return true;
+      } return false;
+    }
+
+    public boolean checkVertical(String word, int row, int col){
+      boolean available = true;
+      for(int x = 0; x < word.length(); x++){
+        if((data[x + row][col] == '_') ||
+           (data[x + row][col] == word.charAt(x))){
+             available = true;
+           }else{
+             return false;
+           }
+      } return available;
+    }
 }
