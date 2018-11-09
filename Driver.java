@@ -89,5 +89,61 @@ public class Driver{
     System.out.println("word search should be the same as before");
     System.out.println(first.toString());
 
+    WordSearch second = new WordSearch(10, 10);
+    System.out.println("\n---Testing addWordDiagonal---");
+    System.out.println("testing toString: should print a 10-by-10 empty word search");
+    System.out.println(second.toString());
+
+    System.out.println("\ntesting add WOWZERS diagonally to row 0, column 0: should return true");
+    System.out.println(second.addWordDiagonal("WOWZERS", 0, 0));
+    System.out.println("word search should be modified:");
+    System.out.println(second.toString());
+
+    System.out.println("\ntesting add NO diagonally to row -1, 3: should return false");
+    System.out.println(second.addWordDiagonal("NO", -1, 3));
+    System.out.println("word search should be the same as before:");
+    System.out.println(second.toString());
+
+    System.out.println("\ntesting add WOP diagonally to row 0, column 0: should return false");
+    System.out.println(second.addWordDiagonal("WOP", 0, 0));
+    System.out.println("word search should be the same as before:");
+    System.out.println(second.toString());
+
+    System.out.println("\ntesting add SEAL diagonally to row 6, column 6: should return true");
+    System.out.println(second.addWordDiagonal("SEAL", 6, 6));
+    System.out.println("word search should be modified:");
+    System.out.println(second.toString());
+
+    System.out.println("\ntesting add SEALS diagonally to row 6, column 6: should return false");
+    System.out.println(second.addWordDiagonal("SEALS", 6, 6));
+    System.out.println("word search should be the same as before:");
+    System.out.println(second.toString());
+
+    System.out.println("\ntesting add DIRECTNESS diagonally to row 3, column 0: should return false");
+    System.out.println(second.addWordDiagonal("DIRECTNESS", 3, 0));
+    System.out.println("word search should be the same as before:");
+    System.out.println(second.toString());
+
+    System.out.println("\ntesting add GOOD diagonally to row 0, column 7: should return false");
+    System.out.println(second.addWordDiagonal("GOOD", 0, 7));
+    System.out.println("word search should be the same as before:");
+    System.out.println(second.toString());
+
+    System.out.println("\ntesting add GOOD diagonally to row 2, column 3: should return true");
+    System.out.println(second.addWordDiagonal("GOOD", 2, 3));
+    System.out.println("word search should be modified:");
+    System.out.println(second.toString());
+
+    System.out.println("\ntesting add GOODIES diagonally to row 2, column 3: should return true");
+    System.out.println(second.addWordDiagonal("GOODIES", 2, 3));
+    System.out.println("word search should be modified:");
+    System.out.println(second.toString());
+
+    System.out.println("\ntesting add PEOPLE diagonally to row 4, column 0: should return true");
+    System.out.println(second.addWordDiagonal("PEOPLE", 4, 0));
+    System.out.println("word search should be modified:");
+    System.out.println(second.toString());
+
+
   }
 }
