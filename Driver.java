@@ -16,6 +16,11 @@ public class Driver{
     System.out.println("word search should be modified:");
     System.out.println(first.toString());
 
+    System.out.println("\ntesting add AN horizontally to row -1, column 2: should return false");
+    System.out.println(first.addWordHorizontal("AN", -1, 2));
+    System.out.println("word search should be the same as before:");
+    System.out.println(first.toString());
+
     System.out.println("\ntesting add YES horizontally to row 0, column 3: should return false");
     System.out.println(first.addWordHorizontal("YES", 0, 3));
     System.out.println("word search should be the same as before:");
@@ -57,6 +62,11 @@ public class Driver{
     System.out.println("\ntesting add NOYS vertically to row 0, column 0: should return true");
     System.out.println(first.addWordVertical("NOYS", 0, 0));
     System.out.println("word search should be modified:");
+    System.out.println(first.toString());
+
+    System.out.println("\ntesting add AN vertically to row 1, column -2: should return false");
+    System.out.println(first.addWordVertical("AN", 1, -2));
+    System.out.println("word search should be the same as before:");
     System.out.println(first.toString());
 
     System.out.println("\ntesting add SUPER vertically to row 0, column 4: should return false");
