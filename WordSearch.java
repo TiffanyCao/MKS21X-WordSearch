@@ -46,6 +46,9 @@ public class WordSearch{
      * and the board is NOT modified.
      */
     public boolean addWordHorizontal(String word, int row, int col){
+      if(row < 0 || col < 0){
+        return false;
+      }
       if(row >= data.length || ((col + word.length() - 1) >= data[0].length)){
         return false;
       }
@@ -81,6 +84,9 @@ public class WordSearch{
      *and the board is NOT modified.
      */
     public boolean addWordVertical(String word, int row, int col){
+      if(row < 0 || col < 0){
+        return false;
+      }
       if(col >= data[0].length || ((row + word.length() - 1) >= data.length)){
         return false;
       }
