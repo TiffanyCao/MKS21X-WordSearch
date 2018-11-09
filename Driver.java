@@ -144,6 +144,15 @@ public class Driver{
     System.out.println("word search should be modified:");
     System.out.println(second.toString());
 
+    System.out.println("\ntesting add PUSH diagonally to row 9, column 0: should return false");
+    System.out.println(second.addWordDiagonal("PUSH", 9, 0));
+    System.out.println("word search should be the same as before:");
+    System.out.println(second.toString());
+
+    System.out.println("\ntesting add PULL diagonally to row 0, column 9: should return false");
+    System.out.println(second.addWordDiagonal("PULL", 0, 9));
+    System.out.println("word search should be the same as before:");
+    System.out.println(second.toString());
 
   }
 }
