@@ -1,14 +1,53 @@
+import java.util.*; //random, scanner, arraylist
+import java.io.*; //file, filenotfoundexception
 public class WordSearch{
     private char[][]data;
+
+    //the random seed used to produce this WordSearch
+    private int seed;
+
+    //a random Object to unify your random calls
+    private Random randgen;
+
+    //all words from a text file get added to wordsToAdd, indicating that they have not yet been added
+    private ArrayList<String> wordsToAdd;
+
+    //all words that were successfully added get moved into wordsAdded.
+    private ArrayList<String> wordsAdded;
 
     /**Initialize the grid to the size specified
      *and fill all of the positions with '_'
      *@param row is the starting height of the WordSearch
      *@param col is the starting width of the WordSearch
      */
-    public WordSearch(int rows, int cols){
+    public WordSearch(int rows, int cols, String filename) throws FileNotFoundException{
       data = new char[rows][cols];
       clear();
+      seed = (int)System.currentTimeMillis();
+      randgen = new Random(seed);
+      wordsToAdd = new ArrayList<String>();
+      wordsAdded = new ArrayList<String>();
+      File f = new File(filename);
+      Scanner in = new Scanner(f);
+      while(in.hasNext()){
+        String word = in.next();
+        wordsToAdd.add(word);
+      }
+    }
+
+    public WordSearch(int rows, int cols, String filename, int randSeed) throws FileNotFoundException{
+      data = new char[rows][cols];
+      seed = randSeed;
+      randgen = new Random(seed);
+      clear();
+      wordsToAdd = new ArrayList<String>();
+      wordsAdded = new ArrayList<String>();
+      File f = new File(filename);
+      Scanner in = new Scanner(f);
+      while(in.hasNext()){
+        String word = in.next();
+        wordsToAdd.add(word);
+      }
     }
 
     /**Set all values in the WordSearch to underscores'_'*/
