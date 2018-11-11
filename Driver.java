@@ -1,4 +1,41 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+
 public class Driver{
+  public static void main(String[] args){
+    String fileName = "file.txt";
+    int s = 0;
+    if(args.length > 0){
+      if(args.length > 1){
+        fileName = args[0];
+        s = Integer.parseInt(args[1]);
+      }else{
+        fileName = args[0];
+      }
+    }
+
+    try{
+
+      WordSearch first = new WordSearch(20, 20, fileName);
+      System.out.println("---Testing No Seed---");
+      System.out.println("testing 20-by-20 word search of file:");
+      System.out.println(first.toString());
+
+      System.out.println("\n---Testing Seed---");
+      System.out.println("testing 20-by-20 word search of file: should be the same as given seed");
+      System.out.println("--IF GIVEN NO SEED, THIS WILL TAKE THE SEED OF 0--");
+      WordSearch second = new WordSearch(20, 20, fileName, s);
+      System.out.println(second.toString());
+
+    }catch(FileNotFoundException e){
+      System.out.println("File not found: " + fileName);
+    }
+
+  }
+}
+
+
+/*public class Driver{
   public static void main(String[] args){
     WordSearch first = new WordSearch(8, 5);
 
@@ -156,3 +193,4 @@ public class Driver{
 
   }
 }
+*/
