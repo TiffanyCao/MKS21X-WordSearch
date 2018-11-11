@@ -66,10 +66,19 @@ public class WordSearch{
     public String toString(){
       String result = "";
       for(int x = 0; x < data.length; x++){
+        result += "|";
         for(int y = 0; y < data[x].length; y++){
           result += "" + data[x][y] + " ";
-        } result += "\n";
-      } return result;
+        } result += "|\n";
+      } result += "Words: ";
+      for(int x = 0; x < wordsAdded.size(); x++){
+        if(x == wordsAdded.size() - 1){
+          result += "" + wordsAdded.get(x);
+        }else{
+          result += "" + wordsAdded.get(x) + ", ";
+        }
+      } result += "(seed: " + this.seed + ")";
+      return result;
     }
 
 
