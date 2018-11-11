@@ -146,14 +146,14 @@ public class WordSearch{
         wordsLeft.add(wordsToAdd.get(x));
       }
       while(wordsLeft.size() != 0){
-        int index = randgen.nextInt() % wordsLeft.size();
+        int index = Math.abs(randgen.nextInt() % wordsLeft.size());
         int rowInc = randgen.nextInt() % 2;
         int colInc = randgen.nextInt() % 2;
         boolean added = false;
         int tries = 0;
         while(tries < 1000 && !added){
-          int Row = randgen.nextInt() % data.length;
-          int Column = randgen.nextInt() % data[0].length;
+          int Row = Math.abs(randgen.nextInt() % data.length);
+          int Column = Math.abs(randgen.nextInt() % data[0].length);
           String Word = wordsLeft.get(index);
           tries++;
           added = addWord(Word, Row, Column, rowInc, colInc);
