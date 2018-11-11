@@ -151,19 +151,24 @@ public class WordSearch{
       for(int x = 0; x < wordsToAdd.size(); x++){
         wordsLeft.add(wordsToAdd.get(x));
       }
-      while(wordsLeft.size() != 0){
-        int index = Math.abs(randgen.nextInt() % wordsLeft.size());
-        int rowInc = randgen.nextInt() % 2;
-        int colInc = randgen.nextInt() % 2;
-        boolean added = false;
-        int tries = 0;
-        while(tries < 1000 && !added){
-          int Row = Math.abs(randgen.nextInt() % data.length);
-          int Column = Math.abs(randgen.nextInt() % data[0].length);
-          String Word = wordsLeft.get(index);
-          tries++;
-          added = addWord(Word, Row, Column, rowInc, colInc);
-        } wordsLeft.remove(index);
+      for(int x = 0; x < 1000; x++){
+        if(wordsLeft.size() != 0){
+          int index = Math.abs(randgen.nextInt() % wordsLeft.size());
+          int rowInc = randgen.nextInt() % 2;
+          int colInc = randgen.nextInt() % 2;
+          boolean added = false;
+          int tries = 0;
+          while(tries < 1000 && !added){
+            int Row = Math.abs(randgen.nextInt() % data.length);
+            int Column = Math.abs(randgen.nextInt() % data[0].length);
+            String Word = wordsLeft.get(index);
+            tries++;
+            added = addWord(Word, Row, Column, rowInc, colInc);
+            if(added){
+              wordsLeft.remove(Word);
+            }
+          }
+        }
       }
     }
       /*[rowIncrement,colIncrement] examples:
