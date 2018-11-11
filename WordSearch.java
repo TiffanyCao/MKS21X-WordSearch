@@ -107,6 +107,12 @@ public class WordSearch{
       if(rowIncrement == 0 && colIncrement == 0){
         return false;
       }
+      if((col + (word.length() * colIncrement) > data[0].length) ||
+         (col + (word.length() * colIncrement) < -1) ||
+         (row + (word.length() * rowIncrement) > data.length) ||
+         (row + (word.length() * rowIncrement) < -1)){
+        return false;
+      }
       if(rowIncrement == 0){
         for(int x = 0; x < word.length(); x++){
           if((data[row][(colIncrement * x) + col] != '_') &&
