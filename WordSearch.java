@@ -138,12 +138,35 @@ public class WordSearch{
       return true;
     }
 
+    private void addAllWords(){
+      ArrayList<String> wordsLeft = new ArrayList<String>();
+      for(int x = 0; x < wordsToAdd.size(); x++){
+        wordsLeft.add(wordsToAdd.get(x));
+      }
+      while(wordsLeft.size() != 0){
+        int index = randgen.nextInt() % wordsLeft.size();
+        int rowInc = randgen.nextInt() % 2;
+        int colInc = randgen.nextInt() % 2;
+        boolean added = false;
+        int tries = 0;
+        while(tries < 1000 && !added){
+          int Row = randgen.nextInt() % data.length;
+          int Column = randgen.nextInt() % data[0].length;
+          String Word = wordsLeft.get(index);
+          tries++;
+          added = addWord(Word, Row, Column, rowInc, colInc);
+        }
+        if(added){
+          wordsAdded.add(wordsLeft.get(index));
+        }
+        wordsLeft.remove(index);
+      }
+    }
       /*[rowIncrement,colIncrement] examples:
       *[-1,1] would add up and the right because (row -1 each time, col + 1 each time)
       *[ 1,0] would add downwards because (row+1), with no col change
       *[ 0,-1] would add towards the left because (col - 1), with no row change
       */
-
 
 
     /**Attempts to add a given word to the specified position of the WordGrid.
@@ -157,7 +180,7 @@ public class WordSearch{
      * or there are overlapping letters that do not match, then false is returned
      * and the board is NOT modified.
      */
-    public boolean addWordHorizontal(String word, int row, int col){
+/*  public boolean addWordHorizontal(String word, int row, int col){
       if(row < 0 || col < 0){
         return false;
       }
@@ -195,7 +218,7 @@ public class WordSearch{
      *or there are overlapping letters that do not match, then false is returned.
      *and the board is NOT modified.
      */
-    public boolean addWordVertical(String word, int row, int col){
+/*  public boolean addWordVertical(String word, int row, int col){
       if(row < 0 || col < 0){
         return false;
       }
@@ -231,7 +254,7 @@ public class WordSearch{
     *@return true when the word is added successfully. When the word doesn't fit,
     *or there are overlapping letters that do not match, then false is returned.
     */
-    public boolean addWordDiagonal(String word, int row, int col){
+/*  public boolean addWordDiagonal(String word, int row, int col){
       if(row < 0 || col < 0){
         return false;
       }
@@ -256,5 +279,5 @@ public class WordSearch{
         }
       } return available;
     }
-
+*/
 }
