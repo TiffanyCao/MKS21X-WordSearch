@@ -31,8 +31,9 @@ public class WordSearch{
       Scanner in = new Scanner(f);
       while(in.hasNext()){
         String word = in.next();
-        wordsToAdd.add(word);
+        wordsToAdd.add(word.toUpperCase());
       }
+      addAllWords();
     }
 
     public WordSearch(int rows, int cols, String filename, int randSeed) throws FileNotFoundException{
@@ -48,6 +49,7 @@ public class WordSearch{
         String word = in.nextLine();
         wordsToAdd.add(word.toUpperCase());
       }
+      addAllWords();
     }
 
     /**Set all values in the WordSearch to underscores'_'*/
