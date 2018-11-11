@@ -175,9 +175,15 @@ public class WordSearch{
       *[-1,1] would add up and the right because (row -1 each time, col + 1 each time)
       *[ 1,0] would add downwards because (row+1), with no col change
       *[ 0,-1] would add towards the left because (col - 1), with no row change
-      */
 
 
+    *********************
+    *                   *
+    * OLD METHODS BELOW *
+    *                   *
+    *********************
+
+     */
     /**Attempts to add a given word to the specified position of the WordGrid.
      *The word is added from left to right, must fit on the WordGrid, and must
      *have a corresponding letter to match any letters that it overlaps.
