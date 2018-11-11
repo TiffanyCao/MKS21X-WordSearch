@@ -79,7 +79,7 @@ public class WordSearch{
         }else{
           result += "" + wordsAdded.get(x) + ", ";
         }
-      } result += "(seed: " + this.seed + ")";
+      } result += " (seed: " + this.seed + ")";
       return result;
     }
 
@@ -163,11 +163,7 @@ public class WordSearch{
           String Word = wordsLeft.get(index);
           tries++;
           added = addWord(Word, Row, Column, rowInc, colInc);
-        }
-        if(added){
-          wordsAdded.add(wordsLeft.get(index));
-        }
-        wordsLeft.remove(index);
+        } wordsLeft.remove(index);
       }
     }
       /*[rowIncrement,colIncrement] examples:
