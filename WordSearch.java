@@ -184,7 +184,7 @@ public class WordSearch{
      * or there are overlapping letters that do not match, then false is returned
      * and the board is NOT modified.
      */
-/*  public boolean addWordHorizontal(String word, int row, int col){
+    public boolean addWordHorizontal(String word, int row, int col){
       if(row < 0 || col < 0){
         return false;
       }
@@ -222,7 +222,7 @@ public class WordSearch{
      *or there are overlapping letters that do not match, then false is returned.
      *and the board is NOT modified.
      */
-/*  public boolean addWordVertical(String word, int row, int col){
+    public boolean addWordVertical(String word, int row, int col){
       if(row < 0 || col < 0){
         return false;
       }
@@ -258,7 +258,7 @@ public class WordSearch{
     *@return true when the word is added successfully. When the word doesn't fit,
     *or there are overlapping letters that do not match, then false is returned.
     */
-/*  public boolean addWordDiagonal(String word, int row, int col){
+    public boolean addWordDiagonal(String word, int row, int col){
       if(row < 0 || col < 0){
         return false;
       }
@@ -283,5 +283,5 @@ public class WordSearch{
         }
       } return available;
     }
-*/
+
 }
