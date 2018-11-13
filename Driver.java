@@ -4,27 +4,33 @@ import java.io.FileNotFoundException;
 public class Driver{
   public static void main(String[] args){
     String fileName = "file.txt";
+    int length = 20;
+    int width = 20;
     int s = 0;
     if(args.length > 0){
-      if(args.length > 1){
-        fileName = args[0];
-        s = Integer.parseInt(args[1]);
-      }else{
-        fileName = args[0];
+      fileName = args[0];
+      if(args.length > 2){
+      length = Integer.parseInt(args[1]);
+      width = Integer.parseInt(args[2]);
+      }
+      if(args.length > 3){
+        s = Integer.parseInt(args[3]);
       }
     }
 
     try{
 
-      WordSearch first = new WordSearch(20, 20, fileName);
+      WordSearch first = new WordSearch(length, width, fileName);
       System.out.println("---Testing No Seed---");
-      System.out.println("testing 20-by-20 word search of file:");
+      System.out.println("if no width and length parameters given, 20-by-20 is the default");
+      System.out.println("testing word search of file:");
       System.out.println(first.toString());
 
       System.out.println("\n---Testing Seed---");
-      System.out.println("testing 20-by-20 word search of file: should be the same as given seed");
+      System.out.println("if no width and length parameters given, 20-by-20 is the default");
+      System.out.println("testing word search of file: should be the same as given seed");
       System.out.println("--IF GIVEN NO SEED, THIS WILL TAKE THE SEED OF 0--");
-      WordSearch second = new WordSearch(20, 20, fileName, s);
+      WordSearch second = new WordSearch(length, width, fileName, s);
       System.out.println(second.toString());
 
     }catch(FileNotFoundException e){
