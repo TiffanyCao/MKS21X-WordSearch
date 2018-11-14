@@ -8,27 +8,28 @@ public class WordSearch{
     int row = 0;
     int column = 0;
 
-    try{
-      if(args.length < 3){
-        System.out.println("Not enough command line arguments are specified:\nPlease provide the width, length, and file name of the text you wish to scan");
-      }else{
+    if(args.length < 3){
+      System.out.println("Not enough command line arguments are specified:\nPlease provide the width, length, and file name of the text you wish to scan");
+    }else{
+      try{
         row = Integer.parseInt(args[0]);
         column = Integer.parseInt(args[1]);
-        filename = args[2];
+        fileName = args[2];
         if(args.length == 4){
           Seed = Integer.parseInt(args[3]);
         }
         if(args.length == 5){
-          if(args[4].equalsTo("key")){
+          if(args[4].equals("key")){
             Key = true;
           }
         }
+        WordSearch test = new WordSearch;
+      }catch(FileNotFoundException e){
+          System.out.println("File does not exist: Please input an existing file");
       }
-    }catch(FileNotFoundException e){
-      System.out.println("File does not exist: Please input an existing file");
     }
-
   }
+
     private char[][]data;
 
     //the random seed used to produce this WordSearch
