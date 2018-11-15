@@ -14,7 +14,7 @@ public class WordSearch{
       try{
         if((Integer.parseInt(args[0]) <= 0) || (Integer.parseInt(args[1]) <= 0)){
           System.out.println("Row or column input is out of range. Please give a positive value for the dimensions of your word search.");
-        }else if(args.length = 3){
+        }else if(args.length == 3){
           row = Integer.parseInt(args[0]);
           column = Integer.parseInt(args[1]);
           fileName = args[2];
