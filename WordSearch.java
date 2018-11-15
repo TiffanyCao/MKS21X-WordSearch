@@ -2,7 +2,7 @@ import java.util.*; //random, scanner, arraylist
 import java.io.*; //file, filenotfoundexception
 public class WordSearch{
   public static void main(String[] args) {
-    int Seed = (int)(Math.random() % 10001);
+    int Seed = (int)(Math.abs(Math.random() % 10001));
     String fileName = "filename.txt";
     boolean Key = false;
     int row = 0;
@@ -127,7 +127,7 @@ public class WordSearch{
       for(int x = 0; x < data.length; x++){
         for(int y = 0; y < data[0].length; y++){
           if(data[x][y] == '_'){
-            char letter = (char)('A' + randgen.nextInt() % 26);
+            char letter = (char)('A' + Math.abs(randgen.nextInt() % 26));
             data[x][y] = letter;
           }
         }
