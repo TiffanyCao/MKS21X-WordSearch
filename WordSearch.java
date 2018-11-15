@@ -2,32 +2,44 @@ import java.util.*; //random, scanner, arraylist
 import java.io.*; //file, filenotfoundexception
 public class WordSearch{
   public static void main(String[] args) {
-    int Seed = (int)(Math.random() % 10000);
+    int Seed = (int)(Math.random() % 10001);
     String fileName = "filename.txt";
     boolean Key = false;
     int row = 0;
     int column = 0;
 
     if(args.length < 3){
-      System.out.println("Not enough command line arguments are specified:\nPlease provide the width, length, and file name of the text you wish to scan");
+      System.out.println("Not enough command line arguments are specified:\nPlease provide the width, length, and file name of the text you wish to scan.\nPlease remember that row and column inputs should be positive values.\nPlease remember to give an existing file containing the words you want to add");
     }else{
       try{
-        row = Integer.parseInt(args[0]);
-        column = Integer.parseInt(args[1]);
-        fileName = args[2];
-        if(args.length == 4){
+        if((Integer.parseInt(args[0]) <= 0) || (Integer.parseInt(args[1]) <= 0)){
+          System.out.println("Row or column input is out of range. Please give a positive value for the dimensions of your word search.");
+        }else if(args.length = 3){
+          row = Integer.parseInt(args[0]);
+          column = Integer.parseInt(args[1]);
+          fileName = args[2];
+          WordSearch test = new WordSearch(row, column, fileName, Seed, Key);
+          System.out.println(test.toString());
+        }else if((Integer.parseInt(args[3]) > 10000) || (Integer.parseInt(args[3]) < 0)){
+            System.out.println("The seed given is out of range:\nPlease give a seed value that is less than or equal to 10,000 and greater than or equal to 0.");
+        }else if(args.length == 4){
           Seed = Integer.parseInt(args[3]);
+          WordSearch test = new WordSearch(row, column, fileName, Seed, Key);
+          System.out.println(test.toString());
+        }else if(args[4].equals("key")){
+          Key = true;
+          WordSearch test = new WordSearch(row, column, fileName, Seed, Key);
+          System.out.println(test.toString());
+        }else{
+          System.out.println("If you want to access the answer key to your puzzle, please input the word 'key' after your previous command line arguments.");
+          WordSearch test = new WordSearch(row, column, fileName, Seed, Key);
+          System.out.println(test.toString());
         }
-        if(args.length == 5){
-          if(args[4].equals("key")){
-            Key = true;
-          }
-        }
-        WordSearch test = new WordSearch;
       }catch(FileNotFoundException e){
-          System.out.println("File does not exist: Please input an existing file");
+        System.out.println("The file you gave does not exist. Please give an exisiting file containing the words you want to add.");
       }
     }
+
   }
 
     private char[][]data;
