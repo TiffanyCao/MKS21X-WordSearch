@@ -10,11 +10,11 @@ public class WordSearch{
     int column = 0;
 
     if(args.length < 3){
-      System.out.println("Not enough command line arguments are specified:\nPlease provide the rows, columns, and file name of the text you wish to scan.\nPlease remember that row and column inputs should be positive values.\nPlease remember to give an existing file containing the words you want to add.");
+      System.out.println("**usage: java WordSearch [rows cols filename [randomSeed [answers]]]\nNot enough command line arguments are specified:\nPlease provide the rows, columns, and file name of the text you wish to scan.\nPlease remember that row and column inputs should be positive values.\nPlease remember to give an existing file containing the words you want to add.");
     }else{
       try{
         if((Integer.parseInt(args[0]) <= 0) || (Integer.parseInt(args[1]) <= 0)){
-          System.out.println("Row or column input is out of range. Please give positive values for the dimensions of your word search.");
+          System.out.println("**usage: java WordSearch [rows cols filename [randomSeed [answers]]]\nRow or column input is out of range. Please give positive values for the dimensions of your word search.");
         }else if(args.length == 3){
           row = Integer.parseInt(args[0]);
           column = Integer.parseInt(args[1]);
@@ -22,7 +22,7 @@ public class WordSearch{
           WordSearch test = new WordSearch(row, column, fileName, Seed, Key);
           System.out.println(test.toString());
         }else if((Integer.parseInt(args[3]) > 10000) || (Integer.parseInt(args[3]) < 0)){
-            System.out.println("The seed given is out of range: " + args[3] + "\nPlease give a seed value that is less than or equal to 10,000 and greater than or equal to 0.");
+            System.out.println("**usage: java WordSearch [rows cols filename [randomSeed [answers]]]\nThe seed given is out of range: " + args[3] + "\nPlease give a seed value that is less than or equal to 10,000 and greater than or equal to 0.");
         }else if(args.length == 4){
           row = Integer.parseInt(args[0]);
           column = Integer.parseInt(args[1]);
@@ -42,7 +42,7 @@ public class WordSearch{
           System.out.println(test.toString());
         }
       }catch(FileNotFoundException e){
-        System.out.println("The file you gave: " + fileName + " does not exist. Please give an existing file containing the words you want to add.");
+        System.out.println("**usage: java WordSearch [rows cols filename [randomSeed [answers]]]\nThe file you gave: " + fileName + " does not exist. Please give an existing file containing the words you want to add.");
       }
     }
 
